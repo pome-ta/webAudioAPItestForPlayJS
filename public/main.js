@@ -5,7 +5,7 @@ let osc;
 let isPlaying = false;
 let mode = 0;
 const analyser = ctx.createAnalyser();
-
+console.log(ctx);
 console.log(analyser);
 
 document.querySelector("#play").addEventListener("click", () => {
