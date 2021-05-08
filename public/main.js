@@ -1,10 +1,18 @@
+import Oscillator from './oscillator.js';
+
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
+
+const hoge = new Oscillator();
+console.log({hoge});
+
 const ctx = new AudioContext();
 let osc;
 // 再生中でtrue
 let isPlaying = false;
 let mode = 0;
 const analyser = ctx.createAnalyser();
+const fuga = hoge.context.createAnalyser();
+console.log(fuga);
 
 document.querySelector("#play").addEventListener("click", () => {
   // 再生中なら二重に再生されないようにする
