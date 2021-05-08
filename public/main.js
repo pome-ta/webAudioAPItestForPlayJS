@@ -11,8 +11,7 @@ let osc;
 let isPlaying = false;
 let mode = 0;
 const analyser = ctx.createAnalyser();
-const fuga = hoge.context.createAnalyser();
-console.log(fuga);
+
 
 document.querySelector("#play").addEventListener("click", () => {
   // 再生中なら二重に再生されないようにする
@@ -29,6 +28,10 @@ document.querySelector("#stop").addEventListener("click", () => {
 });
 
 
+
+
+// canvas
+
 const canvasctx = document.getElementById("graph").getContext("2d");
 const gradbase = canvasctx.createLinearGradient(0, 0, 0, 256);
 gradbase.addColorStop(0, "rgb(20,22,20)");
@@ -41,6 +44,7 @@ for (let i = 0; i < 256; ++i) {
   gradline[i].addColorStop(0, "rgb(255,0,0)");
   gradline[i].addColorStop(1, "rgb(255," + i + ",0)");
 }
+
 /*
 function DrawGraph() {
   canvasctx.fillStyle = gradbase;
@@ -68,3 +72,4 @@ const DrawGraph = () => {
 }
 
 setInterval(DrawGraph, 100);
+
