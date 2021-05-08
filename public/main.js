@@ -2,36 +2,33 @@ import Oscillator from './oscillator.js';
 
 window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
-const hoge = new Oscillator();
-console.log({hoge});
+//const hoge = new Oscillator();
+//console.log({hoge});
+const ctx = new Oscillator();
+//const ctx = new AudioContext();
 
-const ctx = new AudioContext();
-let osc;
 // 再生中でtrue
-let isPlaying = false;
-let mode = 0;
-const analyser = ctx.createAnalyser();
+//let isPlaying = false;
+//let mode = 0;
+//const analyser = ctx.createAnalyser();
 
 
 document.querySelector("#play").addEventListener("click", () => {
   // 再生中なら二重に再生されないようにする
-  if (isPlaying) return;
-  osc = ctx.createOscillator();
-  osc.connect(analyser).connect(ctx.destination);
-  osc.start();
-  isPlaying = true;
+  if (ctx.isPlaying) return;
+  ctx.play();
 });
 
 document.querySelector("#stop").addEventListener("click", () => {
-  osc?.stop();
-  isPlaying = false;
+  ctx.end();
+  
 });
 
 
 
 
 // canvas
-
+/*
 const canvasctx = document.getElementById("graph").getContext("2d");
 const gradbase = canvasctx.createLinearGradient(0, 0, 0, 256);
 gradbase.addColorStop(0, "rgb(20,22,20)");
@@ -45,19 +42,7 @@ for (let i = 0; i < 256; ++i) {
   gradline[i].addColorStop(1, "rgb(255," + i + ",0)");
 }
 
-/*
-function DrawGraph() {
-  canvasctx.fillStyle = gradbase;
-  canvasctx.fillRect(0, 0, 256, 256);
-  const data = new Uint8Array(256);
-  if(mode == 0) analyser.getByteFrequencyData(data); //Spectrum Data
-  else analyser.getByteTimeDomainData(data); //Waveform Data
-  for(var i = 0; i < 256; ++i) {
-    canvasctx.fillStyle = gradline[data[i]];
-    canvasctx.fillRect(i, 256 - data[i], 1, data[i]);
-  }
-}
-*/
+
 
 const DrawGraph = () => {
   canvasctx.fillStyle = gradbase;
@@ -73,3 +58,4 @@ const DrawGraph = () => {
 
 setInterval(DrawGraph, 100);
 
+*/
