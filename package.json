@@ -1,6 +1,9 @@
 {
   "name": "webAudioAPItestForPlayJS",
   "version": "1.0.0",
+  "scripts": {
+    "createPulse": "node ./scripts/createPulse.js"
+  },
   "dependencies": {
     "express": "4.17.1"
   }

@@ -1,3 +1,5 @@
+import pulse from './pulse.js';
+
 export default class Oscillator {
   constructor() {
     const AudioContext = window.AudioContext || window.webkitAudioContext
