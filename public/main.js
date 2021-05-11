@@ -1,7 +1,5 @@
 import Oscillator from './oscillator.js';
 
-window.AudioContext = window.AudioContext || window.webkitAudioContext;
-
 
 const ctx = new Oscillator();
 document.querySelector("#play").addEventListener("click", () => {
@@ -15,7 +13,7 @@ document.querySelector("#stop").addEventListener("click", () => {
   
 });
 
-
+console.log({ctx})
 
 
 // canvas
