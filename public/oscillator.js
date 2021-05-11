@@ -4,15 +4,21 @@ export default class Oscillator {
   constructor() {
     const AudioContext = window.AudioContext || window.webkitAudioContext
     this.context = new AudioContext();
-    const ctx = new AudioContext();
-    console.log(this.context);
-    console.log(ctx);
-    this.osc = new OscillatorNode(this.context);
+    this.osc;
     this.isPlaying = false;
   }
   
   play() {
-    //this.osc = this.context.createOscillator();
+    const waves = {
+      '0.125': this.context.createPeriodicWave(pulse['0.125'].real, pulse['0.125'].imag),
+      '0.25': this.context.createPeriodicWave(pulse['0.25'].real, pulse['0.25'].imag),
+      '0.5': this.context.createPeriodicWave(pulse['0.5'].real, pulse['0.5'].imag),
+      '0.75': this.context.createPeriodicWave(pulse['0.75'].real, pulse['0.75'].imag),
+    };
+    
+    
+    this.osc = this.context.createOscillator();
+    this.osc.setPeriodicWave(waves['0.75']);
     this.osc.connect(this.context.destination);
     this.osc.start();
     this.isPlaying = true;
