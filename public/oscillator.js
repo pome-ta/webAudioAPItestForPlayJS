@@ -16,7 +16,7 @@ export default class Oscillator {
       '0.75': this.context.createPeriodicWave(pulse['0.75'].real, pulse['0.75'].imag),
     };
     
-    
+    this.analyser = this.context.createAnalyser();
     this.osc = this.context.createOscillator();
     this.osc.setPeriodicWave(waves['0.75']);
     this.osc.connect(this.context.destination);
