@@ -4,6 +4,9 @@ export default class Oscillator {
   constructor() {
     const AudioContext = window.AudioContext || window.webkitAudioContext
     this.context = new AudioContext();
+    const ctx = new AudioContext();
+    console.log(this.context);
+    console.log(ctx);
     this.osc = new OscillatorNode(this.context);
     this.isPlaying = false;
   }
